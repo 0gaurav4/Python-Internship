@@ -1,15 +1,41 @@
 <html>
+    <style>
+        body {
+            margin: 0; /* Reset default margin to avoid white space around the body */
+            background-image: url('a.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+          }
+        /* Adjust background image for smaller screens (e.g., tablets) */
+@media (max-width: 320px) {
+    body {
+      background-size: contain;
+    }
+  }
+  
+  /* Adjust background image for even smaller screens (e.g., mobile devices) */
+  @media (max-width: 480px) {
+    body {
+      background-size: 100% auto;
+      background-size: cover;
+      background-position: center top;
+    }
+  }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
-<body>
+    <body>
+<!-- <body style="background-image: url(a.jpg); background-repeat:no-repeat; background-attachment:scroll; background-size:cover; background-position: center;"> -->
     
-<nav class="border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+<nav class="border-black-200 bg-black-100 dark:bg-black-800 dark:border-black-700">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="#" class="flex items-center">
           <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt=".py" />
-          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Python Interview Sheet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Admin:@mysgrown</code></h6></span>
+          <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Python Interview Sheet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Admin:@mysgrown</code></h6></span>
       </a>
-      <button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
+      <button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 ml-3 text-sm text-white-500  bg-gray-100  rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
