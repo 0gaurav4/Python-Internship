@@ -1,5 +1,530 @@
-<html>
-    <body>
-        <script src="https://gist.github.com/0gaurav4/0411b87ea89051f11664798a75c0fd54.js"></script>
-    </body>
-</html>
+
+        <!-- <script src="https://gist.github.com/0gaurav4/0411b87ea89051f11664798a75c0fd54.js"></script> -->
+        <!DOCTYPE html>
+        <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+        <head>
+          <meta charset="utf-8" />
+          <meta name="generator" content="pandoc" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+          <title>Day 2</title>
+          <style>
+            html {
+              line-height: 1.5;
+              font-family: Georgia, serif;
+              font-size: 20px;
+              color: #1a1a1a;
+              background-color: #988888;
+            }
+            body {
+              margin: 0 auto;
+              max-width: 36em;
+              padding-left: 50px;
+              padding-right: 50px;
+              padding-top: 50px;
+              padding-bottom: 50px;
+              hyphens: auto;
+              overflow-wrap: break-word;
+              text-rendering: optimizeLegibility;
+              font-kerning: normal;
+            }
+            @media (max-width: 600px) {
+              body {
+                font-size: 0.9em;
+                padding: 1em;
+              }
+            }
+            @media print {
+              body {
+                background-color: transparent;
+                color: black;
+                font-size: 12pt;
+              }
+              p, h2, h3 {
+                orphans: 3;
+                widows: 3;
+              }
+              h2, h3, h4 {
+                page-break-after: avoid;
+              }
+            }
+            p {
+              margin: 1em 0;
+            }
+            a {
+              color: #1a1a1a;
+            }
+            a:visited {
+              color: #1a1a1a;
+            }
+            img {
+              max-width: 100%;
+            }
+            h1, h2, h3, h4, h5, h6 {
+              margin-top: 1.4em;
+            }
+            h5, h6 {
+              font-size: 1em;
+              font-style: italic;
+            }
+            h6 {
+              font-weight: normal;
+            }
+            ol, ul {
+              padding-left: 1.7em;
+              margin-top: 1em;
+            }
+            li > ol, li > ul {
+              margin-top: 0;
+            }
+            blockquote {
+              margin: 1em 0 1em 1.7em;
+              padding-left: 1em;
+              border-left: 2px solid #e6e6e6;
+              color: #606060;
+            }
+            code {
+              font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+              font-size: 85%;
+              margin: 0;
+            }
+            pre {
+              margin: 1em 0;
+              overflow: auto;
+            }
+            pre code {
+              padding: 0;
+              overflow: visible;
+              overflow-wrap: normal;
+            }
+            .sourceCode {
+             background-color: transparent;
+             overflow: visible;
+            }
+            code{
+                color: #000000;
+                font-weight: bold;
+                background-color: #b9b9b9;
+                border-radius: 12px;
+                font-family: cursive;
+            }
+            hr {
+              background-color: #1a1a1a;
+              border: none;
+              height: 1px;
+              margin: 1em 0;
+            }
+            table {
+              margin: 1em 0;
+              border-collapse: collapse;
+              width: 100%;
+              overflow-x: auto;
+              display: block;
+              font-variant-numeric: lining-nums tabular-nums;
+            }
+            table caption {
+              margin-bottom: 0.75em;
+            }
+            tbody {
+              margin-top: 0.5em;
+              border-top: 1px solid #1a1a1a;
+              border-bottom: 1px solid #1a1a1a;
+            }
+            th {
+              border-top: 1px solid #1a1a1a;
+              padding: 0.25em 0.5em 0.25em 0.5em;
+            }
+            td {
+              padding: 0.125em 0.5em 0.25em 0.5em;
+            }
+            header {
+              margin-bottom: 4em;
+              text-align: center;
+            }
+            #TOC li {
+              list-style: none;
+            }
+            #TOC a:not(:hover) {
+              text-decoration: none;
+            }
+            code{white-space: pre-wrap;}
+            span.smallcaps{font-variant: small-caps;}
+            span.underline{text-decoration: underline;}
+            div.column{display: inline-block; vertical-align: top; width: 50%;}
+            div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+            ul.task-list{list-style: none;}
+            pre > code.sourceCode { white-space: pre; position: relative; }
+            pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+            pre > code.sourceCode > span:empty { height: 1.2em; }
+            .sourceCode { overflow: visible; }
+            code.sourceCode > span { color: inherit; text-decoration: inherit; }
+            div.sourceCode { margin: 1em 0; }
+            pre.sourceCode { margin: 0; }
+            @media screen {
+            div.sourceCode { overflow: auto; }
+            }
+            @media print {
+            pre > code.sourceCode { white-space: pre-wrap; }
+            pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+            }
+            pre.numberSource code
+              { counter-reset: source-line 0; }
+            pre.numberSource code > span
+              { position: relative; left: -4em; counter-increment: source-line; }
+            pre.numberSource code > span > a:first-child::before
+              { content: counter(source-line);
+                position: relative; left: -1em; text-align: right; vertical-align: baseline;
+                border: none; display: inline-block;
+                -webkit-touch-callout: none; -webkit-user-select: none;
+                -khtml-user-select: none; -moz-user-select: none;
+                -ms-user-select: none; user-select: none;
+                padding: 0 4px; width: 4em;
+                color: #aaaaaa;
+              }
+            pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+            div.sourceCode
+              {   }
+            @media screen {
+            pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+            }
+            code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+            code span.an { color: #194e5c; font-weight: bold; font-style: italic; } /* Annotation */
+            code span.at { color: #d1fe07; } /* Attribute */
+            code span.bn { color: #285c42; } /* BaseN */
+            code span.bu { } /* BuiltIn */
+            code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+            code span.ch { color: #073767; } /* Char */
+            code span.cn { color: #880000; } /* Constant */
+            code span.co { color: #014d60; font-style: italic; } /* Comment */
+            code span.cv { color: #165f71; font-weight: bold; font-style: italic; } /* CommentVar */
+            code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+            code span.dt { color: #902000; } /* DataType */
+            code span.dv { color: #245a3f; } /* DecVal */
+            code span.er { color: #ff0000; font-weight: bold; } /* Error */
+            code span.ex { } /* Extension */
+            code span.fl { color: #145233; } /* Float */
+            code span.fu { color: #06287e; } /* Function */
+            code span.im { } /* Import */
+            code span.in { color: #2b4a52; font-weight: bold; font-style: italic; } /* Information */
+            code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+            code span.op { color: #050000; } /* Operator */
+            code span.ot { color: #007020; } /* Other */
+            code span.pp { color: #bc7a00; } /* Preprocessor */
+            code span.sc { color: #26435f; } /* SpecialChar */
+            code span.ss { color: #bb6688; } /* SpecialString */
+            code span.st { color: #003469; } /* String */
+            code span.va { color: #19177c; } /* Variable */
+            code span.vs { color: #043b73; } /* VerbatimString */
+            code span.wa { color: #153d47; font-weight: bold; font-style: italic; } /* Warning */
+            .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+          </style>
+          <!--[if lt IE 9]>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+          <![endif]-->
+        </head>
+        <body>
+        <div class="cell markdown">
+        <p><code>Author : @mysgrown </code> <br> <b>Python : Day 2 </b> <br> <em> Topics covered.. </em></p>
+        <ul>
+        <li>Installation of Python using VS CODE</li>
+        <li>Keywords</li>
+        <li>Identifiers</li>
+        <li>Rules for making Identifiers</li>
+        <li>Datatypes</li>
+        <li>Variables</li>
+        <li>Literals</li>
+        </ul>
+        </div>
+        <div class="cell markdown">
+        <p><b> <u> Installation of Python using VS CODE </u> </b></p>
+        </div>
+        <div class="cell markdown">
+        <ul>
+        <li><p>Search "VS Studio Code" on google and click on official link and download according to your O.S.</p></li>
+        <li><p><a href="https://code.visualstudio.com/" class="uri">https://code.visualstudio.com/</a> (Official Site)</p></li>
+        <li><p>Now Open a new folder in VS code and make a new file save it as <code> anyName.py </code> using <code> .py </code> extension.</p></li>
+        <li><p>Add simple python code here like : <code> print("Hello") </code></p></li>
+        <li><p>Run it using Run Button or Ctrl+F5.</p></li>
+        <li><p>Now VS Code automatically send you mesaages to download necessary files to run python on it.</p></li>
+        <li><p>Download and install whatever they ask you to add.</p></li>
+        <li><p>Again run the program.</p></li>
+        </ul>
+        </div>
+        <div class="cell markdown">
+        <p><b> <u> Keywords </u> </b></p>
+        </div>
+        <div class="cell markdown">
+        <ul>
+        <li>Reserved words</li>
+        <li>The words which convey special meaning to the identifiers.</li>
+        <li>Currently python version 3.10.11 have 36 keywords or reserved words.</li>
+        </ul>
+        </div>
+        <div class="cell code" data-execution_count="41">
+        <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comment in python using #</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Import inbuilt module named as keyword</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> keyword</span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;List of keywords:&quot;</span>,keyword.kwlist)</span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Number of keywords:&quot;</span>,<span class="bu">len</span>(keyword.kwlist))</span></code></pre></div>
+        <div class="output stream stdout">
+        <pre><code>List of keywords: [&#39;False&#39;, &#39;None&#39;, &#39;True&#39;, &#39;__peg_parser__&#39;, &#39;and&#39;, &#39;as&#39;, &#39;assert&#39;, &#39;async&#39;, &#39;await&#39;, &#39;break&#39;, &#39;class&#39;, &#39;continue&#39;, &#39;def&#39;, &#39;del&#39;, &#39;elif&#39;, &#39;else&#39;, &#39;except&#39;, &#39;finally&#39;, &#39;for&#39;, &#39;from&#39;, &#39;global&#39;, &#39;if&#39;, &#39;import&#39;, &#39;in&#39;, &#39;is&#39;, &#39;lambda&#39;, &#39;nonlocal&#39;, &#39;not&#39;, &#39;or&#39;, &#39;pass&#39;, &#39;raise&#39;, &#39;return&#39;, &#39;try&#39;, &#39;while&#39;, &#39;with&#39;, &#39;yield&#39;]
+        Number of keywords: 36
+        </code></pre>
+        </div>
+        </div>
+        <div class="cell markdown">
+        <ul>
+        <li>'False', 'None', 'True' , only these three keywords starts with uppercase.</li>
+        </ul>
+        </div>
+        <div class="cell markdown">
+        <p><b> <u> Identifiers </u> </b></p>
+        </div>
+        <div class="cell markdown">
+        <ul>
+        <li>It is a name given to variable, function, class, module, or any other user-defined object in Python.</li>
+        <li>Identifiers are used to uniquely identify these objects in the code.</li>
+        </ul>
+        </div>
+        <div class="cell markdown">
+        <p><b> <u> Rules for making Identifiers </u> </b></p>
+        </div>
+        <div class="cell markdown">
+        <ul>
+        <li><p>Identifiers can consist of letters (both uppercase and lowercase), digits (0-9), and underscores (_).</p></li>
+        <li><p>The first character of an identifier cannot be a digit.</p></li>
+        <li><p>These are case-sensitive, so my_var and My_Var would be treated as different variables. Cannot use keyword names.</p></li>
+        <li><p>No whitespace is allowed to be used inside naming.</p></li>
+        </ul>
+        </div>
+        <div class="cell code" data-execution_count="54">
+        <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifier examples</span></span>
+        <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># class name    : identifier_name  &lt;lower case&gt;</span></span>
+        <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># function name : Myfun            &lt;upper case&gt;</span></span>
+        <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># object name   : _Obj1            &lt;underscore&gt;</span></span>
+        <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> identifier_name:</span>
+        <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> Myfun(<span class="va">self</span>, x):</span>
+        <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>x<span class="op">+</span><span class="dv">1</span></span>
+        <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span>
+        <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>_Obj1 <span class="op">=</span> identifier_name()</span>
+        <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>_Obj1.Myfun(<span class="dv">1</span>)</span>
+        <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  1Obj2.Myfun(1)</span></span>
+        <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Syntax error &lt;cannot start with digit&gt;</span></span></code></pre></div>
+        <div class="output execute_result" data-execution_count="54">
+        <pre><code>2</code></pre>
+        </div>
+        </div>
+        <div class="cell markdown">
+        <p><b> <u> Datatypes </u> </b></p>
+        </div>
+        <div class="cell markdown">
+        <ul>
+        <li>Represents the type of data in variables.</li>
+        <li>When creating variables, we need to follow the rules for identifiers.</li>
+        <li>Data types can be summarized into three main categories:</li>
+        </ul>
+        <ol>
+        <li><p>Numeric Data Types:</p>
+        <ul>
+        <li><p>int: Represents integers, which are whole numbers without a fractional part <code>(e.g., 5, -10, 0)</code>.</p></li>
+        <li><p>float: Represents floating-point numbers, which are real numbers with decimal points <code>(e.g., 3.14, -0.5)</code>.</p></li>
+        <li><p>complex: representing real number with imaginary numbers <code>(e.g., -2+3j)</code>.</p></li>
+        </ul></li>
+        <li><p>Sequence Data Types (Ordered Collections):</p>
+        <ul>
+        <li><p>str: Represents strings, which are sequences of characters <code>(e.g., "Hello", 'Python')</code>.</p></li>
+        <li><p>list: Represents lists, which are ordered and mutable collections of items <code>(e.g., [1, 2, 3])</code>.</p></li>
+        <li><p>tuple: Represents tuples, which are ordered and immutable collections of items <code>(e.g., (1, 2, 3))</code>.</p></li>
+        <li><p>range: Represents ranges of numbers, often used in loops <code>(e.g., range(0, 5))</code>.</p></li>
+        </ul></li>
+        <li><p>Non-Sequence Data Types (Unordered Collections):</p>
+        <ul>
+        <li><p>set: Represents sets, which are unordered and mutable collections of unique elements <code>(e.g., {1, 2, 3})</code>.</p></li>
+        <li><p>dict: Represents dictionaries, which are unordered and mutable collections of key-value pairs <code>(e.g., {"name": "John", "age": 30})</code>.</p></li>
+        <li><p>bool: Represents Boolean values, either <code>True</code> or <code>False</code>.</p></li>
+        </ul></li>
+        </ol>
+        </div>
+        <div class="cell code" data-execution_count="59">
+        <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examples of primary data types</span></span>
+        <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span>             <span class="co"># int</span></span>
+        <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">3.14</span>          <span class="co"># float</span></span>
+        <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="op">-</span><span class="dv">4</span><span class="op">+</span><span class="ot">5j</span>         <span class="co"># complex</span></span>
+        <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;John&quot;</span>     <span class="co"># str</span></span>
+        <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>is_valid <span class="op">=</span> <span class="va">True</span>   <span class="co"># bool</span></span></code></pre></div>
+        </div>
+        <div class="cell markdown">
+        <p><code>Data Types in details (inbuilt data types)</code></p>
+        <ul>
+        <li>Datatypes represent the type of data present inside a variable.</li>
+        <li>It represent the kind of value that tells what operation can be performed on particular data.</li>
+        </ul>
+        <ol>
+        <li><p>Numeric Types:</p>
+        <ul>
+        <li><p>int: representing whole numbers (e.g., 5, -10, 0).</p></li>
+        <li><p>float: representing real numbers with decimal points (e.g., 3.14, -0.5).</p></li>
+        <li><p>complex: representing real number with imaginary numbers (e.g., -2+3j).</p></li>
+        </ul></li>
+        <li><p>Text Type:</p>
+        <ul>
+        <li>str: representing a sequence of characters enclosed in single (' ') or double (" ") quotes (e.g., "Hello", 'Python').</li>
+        </ul></li>
+        <li><p>Sequence Types:</p>
+        <ul>
+        <li><p>list: Ordered and mutable collection of items, separated by commas and enclosed in square brackets (e.g., [1, 2, 3]).</p></li>
+        <li><p>tuple: Ordered and immutable collection of items, separated by commas and enclosed in parentheses (e.g., (1, 2, 3)).</p></li>
+        <li><p>range: Represents a range of numbers, typically used in loops (e.g., range(0, 5)).</p></li>
+        </ul></li>
+        <li><p>Mapping Type:</p>
+        <ul>
+        <li>dict: An unordered collection of key-value pairs, enclosed in curly braces with colon separating keys and values (e.g., {"name": "John", "age": 30}).</li>
+        </ul></li>
+        <li><p>Set Types:</p>
+        <ul>
+        <li><p>set: An unordered collection of unique elements, enclosed in curly braces (e.g., {1, 2, 3}).</p></li>
+        <li><p>frozenset: An immutable version of a set, enclosed in parentheses (e.g., frozenset({1, 2, 3})).</p></li>
+        </ul></li>
+        <li><p>Boolean Type:</p>
+        <ul>
+        <li>bool: Represents Boolean values - True or False.</li>
+        </ul></li>
+        <li><p>Binary Types:</p>
+        <ul>
+        <li><p>bytes: Represents a sequence of bytes (immutable).</p></li>
+        <li><p>bytearray: Represents a sequence of bytes (mutable).</p></li>
+        <li><p>memoryview: Represents a memory view of an object, allowing access to its internal data.</p></li>
+        </ul></li>
+        <li><p>None Type:</p>
+        <ul>
+        <li>None: Represents the absence of a value or a null value.</li>
+        </ul></li>
+        </ol>
+        <ul>
+        <li>Python is dynamically typed, meaning we don't need to specify the data type of a variable explicitly. Instead, the data type is determined based on the value assigned to the variable.</li>
+        </ul>
+        </div>
+        <div class="cell code" data-execution_count="57">
+        <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Numeric Types</span></span>
+        <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">30</span></span>
+        <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.14</span></span>
+        <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>complex_num <span class="op">=</span> <span class="op">-</span><span class="dv">3</span><span class="op">+</span><span class="ot">6j</span></span>
+        <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Text Type</span></span>
+        <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
+        <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>greeting <span class="op">=</span> <span class="st">&#39;Hello, &#39;</span> <span class="op">+</span> name</span>
+        <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequence Types</span></span>
+        <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
+        <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>coordinates <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>)</span>
+        <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>my_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>)</span>
+        <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapping Type</span></span>
+        <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>person <span class="op">=</span> {<span class="st">&quot;name&quot;</span>: <span class="st">&quot;John&quot;</span>, <span class="st">&quot;age&quot;</span>: <span class="dv">30</span>, <span class="st">&quot;city&quot;</span>: <span class="st">&quot;New York&quot;</span>}</span>
+        <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Types</span></span>
+        <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>unique_numbers <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
+        <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>immutable_set <span class="op">=</span> <span class="bu">frozenset</span>({<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>})</span>
+        <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Boolean Type</span></span>
+        <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>is_valid <span class="op">=</span> <span class="va">True</span></span>
+        <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>is_invalid <span class="op">=</span> <span class="va">False</span></span>
+        <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Binary Types</span></span>
+        <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>binary_data <span class="op">=</span> <span class="st">b&#39;\x00\x01\x02\x03&#39;</span></span>
+        <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>mutable_binary_data <span class="op">=</span> <span class="bu">bytearray</span>(<span class="st">b&#39;\x00\x01\x02\x03&#39;</span>)</span>
+        <span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>mv <span class="op">=</span> <span class="bu">memoryview</span>(mutable_binary_data)</span>
+        <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co"># None Type</span></span>
+        <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="va">None</span></span></code></pre></div>
+        </div>
+        <div class="cell code" data-execution_count="58">
+        <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing values</span></span>
+        <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Numeric Types:&quot;</span>)</span>
+        <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(age)</span>
+        <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pi)</span>
+        <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(complex_num)</span>
+        <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Text Type:&quot;</span>)</span>
+        <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(greeting)</span>
+        <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Sequence Types:&quot;</span>)</span>
+        <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span>
+        <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(coordinates)</span>
+        <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(my_range))</span>
+        <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Mapping Type:&quot;</span>)</span>
+        <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(person)</span>
+        <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Set Types:&quot;</span>)</span>
+        <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_numbers)</span>
+        <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(immutable_set)</span>
+        <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Boolean Type:&quot;</span>)</span>
+        <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_valid, is_invalid)</span>
+        <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Binary Types:&quot;</span>)</span>
+        <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(binary_data)</span>
+        <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mutable_binary_data)</span>
+        <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mv[<span class="dv">0</span>])</span>
+        <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">None Type:&quot;</span>)</span>
+        <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div>
+        <div class="output stream stdout">
+        <pre><code>Numeric Types:
+        30
+        3.14
+        (-3+6j)
+        
+        Text Type:
+        Hello, John
+        
+        Sequence Types:
+        [1, 2, 3, 4]
+        (10, 20)
+        [1, 2, 3, 4, 5]
+        
+        Mapping Type:
+        {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 30, &#39;city&#39;: &#39;New York&#39;}
+        
+        Set Types:
+        {1, 2, 3, 4, 5}
+        frozenset({1, 2, 3})
+        
+        Boolean Type:
+        True False
+        
+        Binary Types:
+        b&#39;\x00\x01\x02\x03&#39;
+        bytearray(b&#39;\x00\x01\x02\x03&#39;)
+        0
+        
+        None Type:
+        None
+        </code></pre>
+        </div>
+        </div>
+        <div class="cell markdown">
+        <p><b> <u> Variable </u> </b></p>
+        </div>
+        <div class="cell markdown">
+        <ul>
+        <li>It is a name given to memory location of a program.</li>
+        </ul>
+        <p>OR</p>
+        <ul>
+        <li><h2 id="it-is-a-named-location-used-to-store-data-in-memory">It is a named location used to store data in memory.</h2></li>
+        <li>It holds data that can be changed later in a program.</li>
+        <li>For e.g., <code>num = 10</code> , <code>website = "apple.com"</code></li>
+        </ul>
+        </div>
+        <div class="cell markdown">
+        <p><b> <u> Literals </u> </b></p>
+        </div>
+        <div class="cell markdown">
+        <ul>
+        <li><p>It is a notation for representing a fixed value in python code.</p></li>
+        <li><p>These are constant values that directly appears in a program and can be assigned to a variable.</p></li>
+        <li><p>For e.g., <code>a = 3</code></p></li>
+        <li><p>Here, value = 3, is integer_literal given by variable <code>a</code>.</p></li>
+        </ul>
+        </div>
+        <div class="cell markdown">
+        
+        </div>
+        </body>
+        </html>
+        

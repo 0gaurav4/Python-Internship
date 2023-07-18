@@ -4,7 +4,7 @@
             margin: 0; /* Reset default margin to avoid white space around the body */
             background-image: url('a.jpg');
             background-size: cover;
-            background-position: center;
+            background-position:unset ;
             background-repeat: no-repeat;
             background-attachment: fixed;
           }
@@ -16,12 +16,12 @@
   }
   
   /* Adjust background image for even smaller screens (e.g., mobile devices) */
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
     body {
       background-size: 100% auto;
-      background-size: cover;
-      background-position: center top;
+      background-position:  left;
     }
+
   }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
