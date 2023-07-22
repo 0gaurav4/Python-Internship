@@ -1,6 +1,3 @@
-
-<!-- <script src="https://gist.github.com/0gaurav4/f151bc9687f12eac8a6d6a1e3c5048d6.js"></script> -->
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -13,8 +10,8 @@
       line-height: 1.5;
       font-family: Georgia, serif;
       font-size: 20px;
-      color: #000000;
-      background-color: #988888;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
     }
     body {
       margin: 0 auto;
@@ -32,6 +29,9 @@
       body {
         font-size: 0.9em;
         padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
       }
     }
     @media print {
@@ -115,13 +115,6 @@
       display: block;
       font-variant-numeric: lining-nums tabular-nums;
     }
-    code{
-        color: #000000;
-        font-weight: bold;
-        background-color: #b9b9b9;
-        border-radius: 12px;
-        font-family: cursive;
-    }
     table caption {
       margin-bottom: 0.75em;
     }
@@ -144,15 +137,26 @@
     #TOC li {
       list-style: none;
     }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
     #TOC a:not(:hover) {
       text-decoration: none;
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <!--[if lt IE 9]>
@@ -161,7 +165,8 @@
 </head>
 <body>
 <div class="cell markdown">
-<p><code>Author : @mysgrown </code> <br> <b>Python : Day 1 </b> <br> <em> Topics covered.. </em></p>
+<p><code>Author : @mysgrown </code> <br> <b>Python : Day 1 </b> <br>
+<em> Topics covered.. </em></p>
 <ul>
 <li>What is Python</li>
 <li>Adavntages / Features of Python</li>
@@ -176,10 +181,13 @@
 </div>
 <div class="cell markdown">
 <ul>
-<li><p>Python is a general purpose, high-level, interpreted, programming language.</p></li>
+<li><p>Python is a general purpose, high-level, interpreted, programming
+language.</p></li>
 <li><p>It is most popular in AI and ML.</p></li>
-<li><p>It was developed by <code>Guido Van Rossum</code> in 1989. Publically available <date>Feb/20/1991</date>.</p></li>
-<li><p>Python name inspired by <code>"Monte Flying Python Circus"</code> broadcast by BBC in 1969-74.</p></li>
+<li><p>It was developed by <code>Guido Van Rossum</code> in 1989.
+Publically available <date>Feb/20/1991</date>.</p></li>
+<li><p>Python name inspired by <code>"Monte Flying Python Circus"</code>
+broadcast by BBC in 1969-74.</p></li>
 </ul>
 </div>
 <div class="cell markdown">
@@ -187,14 +195,26 @@
 </div>
 <div class="cell markdown">
 <ul>
-<li><p><strong> General Purpose : </strong> Can be used for wide range of applications.</p></li>
-<li><p><strong> High-level / OOPs : </strong> Provide abstractions that simplify complex programming tasks, including (Object Oriented Programming concepts) OOPs.</p></li>
-<li><p><strong> Free &amp; Open source : </strong> Available free of cost and easy to code beacause of large open source community.</p></li>
-<li><p><strong> Extensible feature / Scripting : </strong> We can write some python code in other programming languages. For example : <em>Chaquopy</em> in Android and <em>pyscript</em> in HTML.</p></li>
-<li><p><strong> Portable / Platform independent : </strong> We can write same python code in Linux, Windows, Android and IOS.</p></li>
-<li><p><strong> Large Standard Library : </strong> Python has collection of pre-built modules and functions for various tasks.</p></li>
-<li><p><strong> Dynamically typed language : </strong> No need to specify the type of variable, it will be taken automatically according the given value in Python.</p></li>
-<li><p><strong> Interpreted : </strong> Python code is executed line by line by an interpreter, allowing for rapid development and easy debugging.</p></li>
+<li><p><strong> General Purpose : </strong> Can be used for wide range
+of applications.</p></li>
+<li><p><strong> High-level / OOPs : </strong> Provide abstractions that
+simplify complex programming tasks, including (Object Oriented
+Programming concepts) OOPs.</p></li>
+<li><p><strong> Free &amp; Open source : </strong> Available free of
+cost and easy to code beacause of large open source community.</p></li>
+<li><p><strong> Extensible feature / Scripting : </strong> We can write
+some python code in other programming languages. For example :
+<em>Chaquopy</em> in Android and <em>pyscript</em> in HTML.</p></li>
+<li><p><strong> Portable / Platform independent : </strong> We can write
+same python code in Linux, Windows, Android and IOS.</p></li>
+<li><p><strong> Large Standard Library : </strong> Python has collection
+of pre-built modules and functions for various tasks.</p></li>
+<li><p><strong> Dynamically typed language : </strong> No need to
+specify the type of variable, it will be taken automatically according
+the given value in Python.</p></li>
+<li><p><strong> Interpreted : </strong> Python code is executed line by
+line by an interpreter, allowing for rapid development and easy
+debugging.</p></li>
 </ul>
 </div>
 <div class="cell markdown">
@@ -227,20 +247,34 @@
 <p><b><u> Python is interpreted or Compiled? </u> </b></p>
 </div>
 <div class="cell markdown">
-<p>In Python, the code is first compiled into bytecode and then interpreted by the Python interpreter. The compilation step happens automatically when the code is run, and the interpreted bytecode is executed by the interpreter. This combination of compilation and interpretation is known as "interpreted compilation" or "just-in-time compilation."</p>
+<p>In Python, the code is first compiled into bytecode and then
+interpreted by the Python interpreter. The compilation step happens
+automatically when the code is run, and the interpreted bytecode is
+executed by the interpreter. This combination of compilation and
+interpretation is known as "interpreted compilation" or "just-in-time
+compilation."</p>
 </div>
 <div class="cell markdown">
 <p><b><u> Versions / Flavours of Python </u> </b></p>
 </div>
 <div class="cell markdown">
 <ul>
-<li><p>It typically pertains to different implementations or distributions of the Python programming language. These flavors provide additional features and capabilities.</p></li>
-<li><p><b> Jython </b> : <code> Python Interact with Java libraries. </code></p></li>
-<li><p><b> IronPython </b> : <code> Python Interact with .NET libraries. </code></p></li>
-<li><p><b> PyPy </b> : <code> Utilize JIT compilation for performance improvement over cpython. </code></p></li>
-<li><p><b> MicroPython </b> : <code> lightweight implementation optimized for microcontrollers and embedded systems.</code></p></li>
-<li><p><b> CPython </b> : <code> The default and most widely used implementation of Python, written in C. </code></p></li>
-<li><p><b> Anaconda </b> : <code> (although it is primarily a distribution that includes CPython, it also provides additional tools and libraries). </code></p></li>
+<li><p>It typically pertains to different implementations or
+distributions of the Python programming language. These flavors provide
+additional features and capabilities.</p></li>
+<li><p><b> Jython </b> : <code> Python Interact with Java libraries.
+</code></p></li>
+<li><p><b> IronPython </b> : <code> Python Interact with .NET libraries.
+</code></p></li>
+<li><p><b> PyPy </b> : <code> Utilize JIT compilation for performance
+improvement over cpython. </code></p></li>
+<li><p><b> MicroPython </b> : <code> lightweight implementation
+optimized for microcontrollers and embedded systems.</code></p></li>
+<li><p><b> CPython </b> : <code> The default and most widely used
+implementation of Python, written in C. </code></p></li>
+<li><p><b> Anaconda </b> : <code> (although it is primarily a
+distribution that includes CPython, it also provides additional tools
+and libraries). </code></p></li>
 </ul>
 </div>
 <div class="cell markdown">
