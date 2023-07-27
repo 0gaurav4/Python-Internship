@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Chapter 3</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="cell markdown">
+<p><code>Author : @mysgrown </code> <br> <b>Python : Chapter 3 </b> <br>
+<em> Topics covered.. </em></p>
+<ul>
+<li>Integer to Binary, Octal, &amp; Hexadecimal</li>
+<li>Big floating point value</li>
+<li>Complex number parts</li>
+<li>String functions</li>
+<li>Escape Sequence Characters</li>
+</ul>
+</div>
+<div class="cell markdown">
+<p><b> <u> Integer to Binary, Octal, &amp; Hexadecimal </u> </b></p>
+</div>
+<div class="cell code" data-execution_count="44">
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bin1 <span class="op">=</span> <span class="bn">0b01</span> , <span class="bn">0B10</span> <span class="co">#suffix &#39;0b&#39; or &#39;0B&#39; with 0 or 1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>oct1 <span class="op">=</span> <span class="bn">0o12</span> , <span class="bn">0O12</span> <span class="co">#suffix &#39;0o&#39; or &#39;0O&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>hex1 <span class="op">=</span> <span class="bn">0x12</span> , <span class="bn">0X12</span> <span class="co">#suffix &#39;0x&#39; or &#39;0X&#39;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Values of bin1 :&quot;</span>,bin1)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Values of oct1 :&quot;</span>,oct1)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Values of hex1 :&quot;</span>,hex1)</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>Values of bin1 : (1, 2)
+Values of oct1 : (10, 10)
+Values of hex1 : (18, 18)
+</code></pre>
+</div>
+</div>
+<div class="cell code" data-execution_count="46">
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Converted int to bin,oct,hex </span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="dv">22</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Integer </span><span class="sc">{</span>num<span class="sc">}</span><span class="ss"> to binary      :&quot;</span>,<span class="bu">bin</span>(num),<span class="st">&quot;   AND type:&quot;</span>,<span class="bu">type</span>(<span class="bu">bin</span>(num)))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Integer </span><span class="sc">{</span>num<span class="sc">}</span><span class="ss"> to octal       :&quot;</span>,<span class="bu">oct</span>(num),<span class="st">&quot;      AND type:&quot;</span>,<span class="bu">type</span>(<span class="bu">oct</span>(num)))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Integer </span><span class="sc">{</span>num<span class="sc">}</span><span class="ss"> to hexadecimal :&quot;</span>,<span class="bu">hex</span>(num),<span class="st">&quot;      AND type:&quot;</span>,<span class="bu">type</span>(<span class="bu">hex</span>(num)))</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>Converted int to bin,oct,hex 
+
+Integer 22 to binary      : 0b10110    AND type: &lt;class &#39;str&#39;&gt;
+Integer 22 to octal       : 0o26       AND type: &lt;class &#39;str&#39;&gt;
+Integer 22 to hexadecimal : 0x16       AND type: &lt;class &#39;str&#39;&gt;
+</code></pre>
+</div>
+</div>
+<div class="cell markdown">
+<p><b> <u> Big floating point value </u> </b></p>
+</div>
+<div class="cell code" data-execution_count="47">
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fp <span class="op">=</span> <span class="fl">3.2e20</span> <span class="co"># &#39;e&#39; tends to exponential value</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fp)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(fp))</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>3.2e+20
+&lt;class &#39;float&#39;&gt;
+</code></pre>
+</div>
+</div>
+<div class="cell markdown">
+<p><b> <u> Complex number parts </u> </b></p>
+</div>
+<div class="cell code" data-execution_count="50">
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a -&gt; real part      (bin,int,float,oct,hex)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># b -&gt; imaginary part (int,float) </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>complex_num <span class="op">=</span> <span class="dv">3</span> <span class="op">+</span> <span class="ot">6j</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(complex_num)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(complex_num))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(complex_num.real) <span class="co"># returns real part of complex number,</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(complex_num.imag) <span class="co"># returns imaginary part of it.</span></span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>(3+6j)
+&lt;class &#39;complex&#39;&gt;
+3.0
+6.0
+</code></pre>
+</div>
+</div>
+<div class="cell markdown">
+<p><b> <u> String functions </u> </b></p>
+</div>
+<div class="cell code" data-execution_count="143">
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> string_functions(text):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Length of the string</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Length of the string:</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="bu">len</span>(text))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to uppercase</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Uppercase:</span><span class="ch">\n</span><span class="st">&quot;</span>, text.upper())</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to lowercase</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Lowercase:</span><span class="ch">\n</span><span class="st">&quot;</span>, text.lower())</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Strip() Remove leading and trailing whitespaces</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Stripped text:</span><span class="ch">\n</span><span class="st">&quot;</span>, text.strip())</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Split() split the string into a list of substrings</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    words <span class="op">=</span> text.split(<span class="st">&quot; &quot;</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;List of words:</span><span class="ch">\n</span><span class="st">&quot;</span>, words)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Join the list of words into a single string</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    joined_text <span class="op">=</span> <span class="st">&quot;-&quot;</span>.join(words)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Joined with &#39;-&#39; separator:</span><span class="ch">\n</span><span class="st">&quot;</span>, joined_text)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the string starts with a specific substring</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Starts with &#39;Python&#39;?</span><span class="ch">\n</span><span class="st">&quot;</span>, text.startswith(<span class="st">&quot;Python&quot;</span>))</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Starts with &#39; &#39;?</span><span class="ch">\n</span><span class="st">&quot;</span>, text.startswith(<span class="st">&quot; &quot;</span>))</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the string ends with a specific substring</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Ends with &#39;String_functions!&#39;?</span><span class="ch">\n</span><span class="st">&quot;</span>, text.endswith(<span class="st">&quot;String_functions!&quot;</span>))</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Ends with &#39; &#39;?</span><span class="ch">\n</span><span class="st">&quot;</span>, text.endswith(<span class="st">&quot; &quot;</span>))</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace occurrences of a substring with another substring</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    replaced_text <span class="op">=</span> text.replace(<span class="st">&quot;Python&quot;</span>, <span class="st">&quot;PY&quot;</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Replaced text:</span><span class="ch">\n</span><span class="st">&quot;</span>, replaced_text)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the index of the first occurrence of a substring</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Index of &#39;String_functions!&#39;:</span><span class="ch">\n</span><span class="st">&quot;</span>, text.find(<span class="st">&quot;String_functions!&quot;</span>))</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Index of &#39;Python&#39;:</span><span class="ch">\n</span><span class="st">&quot;</span>, text.find(<span class="st">&quot;Python&quot;</span>))</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    input_text <span class="op">=</span> <span class="st">&quot;  Python, String_functions!  &quot;</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Input text is :&#39; </span><span class="sc">{</span>input_text<span class="sc">}</span><span class="ss"> &#39;&quot;</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    string_functions(input_text)</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>Input text is :&#39;   Python, String_functions!   &#39;
+Length of the string:
+ 29
+Uppercase:
+   PYTHON, STRING_FUNCTIONS!  
+Lowercase:
+   python, string_functions!  
+Stripped text:
+ Python, String_functions!
+List of words:
+ [&#39;&#39;, &#39;&#39;, &#39;Python,&#39;, &#39;String_functions!&#39;, &#39;&#39;, &#39;&#39;]
+Joined with &#39;-&#39; separator:
+ --Python,-String_functions!--
+Starts with &#39;Python&#39;?
+ False
+Starts with &#39; &#39;?
+ True
+Ends with &#39;String_functions!&#39;?
+ False
+Ends with &#39; &#39;?
+ True
+Replaced text:
+   PY, String_functions!  
+Index of &#39;String_functions!&#39;:
+ 10
+Index of &#39;Python&#39;:
+ 2
+</code></pre>
+</div>
+</div>
+<div class="cell code" data-execution_count="166">
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Slice the string with indexing</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span>  <span class="st">&#39;python&#39;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;&#39;python&#39; sliced to </span><span class="ch">\n</span><span class="st"> negative slicing:</span><span class="ch">\n</span><span class="st">&quot;</span>, t[<span class="op">-</span><span class="dv">2</span>],t[<span class="op">-</span><span class="dv">4</span>],t[<span class="dv">0</span>], <span class="st">&quot;</span><span class="ch">\n</span><span class="st">simple slicing: </span><span class="ch">\n</span><span class="st">&quot;</span>, t[<span class="dv">4</span>:<span class="dv">6</span>], <span class="st">&quot;</span><span class="ch">\n</span><span class="st">step slicing: </span><span class="ch">\n</span><span class="st">&quot;</span>, t[<span class="dv">3</span>:<span class="dv">0</span>:<span class="op">-</span><span class="dv">2</span>])</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># reverse string</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Reverse of &#39;python&#39; is :</span><span class="ch">\n</span><span class="st">&quot;</span>,t[::<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># f string or string formatting</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># {} -&gt; replacement operator</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss"> &#39; </span><span class="sc">{</span>t<span class="sc">}</span><span class="ss"> &#39; is the input string.&quot;</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># find() returns index using first matched string</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># if not matched returns -1</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># var.find(&quot;pattern&quot;,&quot;start&quot;,&quot;end&quot;)</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> <span class="st">&#39;npython&#39;</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss"> &#39; </span><span class="sc">{</span>t1<span class="sc">}</span><span class="ss"> &#39; Index of  last n is :&quot;</span>,t1.find(<span class="st">&#39;n&#39;</span>,<span class="dv">2</span>))</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Index() returns index using first matched string</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># if not matched returns error</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># var.index(&quot;pattern&quot;)</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">\n</span><span class="ss"> &#39; </span><span class="sc">{</span>t1<span class="sc">}</span><span class="ss"> &#39; Index of n is :&quot;</span>,t1.index(<span class="st">&#39;n&#39;</span>))</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>&#39;python&#39; sliced to 
+ negative slicing:
+ o t p 
+simple slicing: 
+ on 
+step slicing: 
+ hy
+
+Reverse of &#39;python&#39; is :
+ nohtyp
+
+ &#39; python &#39; is the input string.
+
+ &#39; npython &#39; Index of n is : 6
+
+ &#39; npython &#39; Index of n is : 0
+</code></pre>
+</div>
+</div>
+<div class="cell code" data-execution_count="65">
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use of quotes in string</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. triple quote for multiline string known as &#39;docstring&#39;.</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. double quote for string holding another single quote string or &#39;s srting.</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. single quote for holding another double quote string or &#39;s srting.</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>str1 <span class="op">=</span> <span class="st">&quot;&quot;&quot; This is </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">a &quot; string&#39;s &#39;example&#39;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="st">using python.&quot; &quot;&quot;&quot;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(str1)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;s string -&gt; e.g., : Jon&#39;s, Moxely&#39;s, Kane&#39;s, etc.</span></span></code></pre></div>
+<div class="output stream stdout">
+<pre><code> This is 
+a &quot; string&#39;s &#39;example&#39;
+using python.&quot; 
+</code></pre>
+</div>
+</div>
+<div class="cell markdown">
+<p><b> <u> Escape Sequence Characters </u> </b></p>
+</div>
+<div class="cell code" data-execution_count="66">
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> escape_sqchar():</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Newline escape sequence</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Python</span><span class="ch">\n</span><span class="st">Escape Sequence!&quot;</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tab escape sequence</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Escape </span><span class="ch">\t</span><span class="st">Sequence&quot;</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Backslash escape sequence</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Escape the backslash: </span><span class="ch">\\</span><span class="st">&quot;</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Single quote escape sequence</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;He said, &#39;Escape&#39;&quot;</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Double quote escape sequence</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;She said, </span><span class="ch">\&quot;</span><span class="st">Sequence Character</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Raw strings (ignores escape sequences)</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="vs">r&quot;Raw string: C:\Users\ESC\Desktop&quot;</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Unicode escape sequence</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\u03A3</span><span class="st"> is the Greek letter sigma&quot;</span>)</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Hexadecimal escape sequence</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Hex value: </span><span class="ch">\x41</span><span class="st"> is A&quot;</span>)</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    escape_sqchar()</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>Python
+Escape Sequence!
+Escape 	Sequence
+Escape the backslash: \
+He said, &#39;Escape&#39;
+She said, &quot;Sequence Character&quot;
+Raw string: C:\Users\ESC\Desktop
+Σ is the Greek letter sigma
+Hex value: A is A
+</code></pre>
+</div>
+</div>
+</body>
+</html>
