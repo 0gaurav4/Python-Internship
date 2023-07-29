@@ -6,7 +6,7 @@ from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 
 # Replace 'C:\\' with the path to your JPG image
-image_path = 'C:\\Users\\gaura\\OneDrive\\Desktop\\Python Internship\\Python programs\\first\\w2.png'
+image_path = 'C:\\Users\\gaura\\OneDrive\\Desktop\\Python Internship\\Python programs\\first\\p1.png'
 image = Image.open(image_path)
 
 image_array = np.array(image)
@@ -15,7 +15,7 @@ image_array = np.array(image)
 with open('C:\\Users\\gaura\\OneDrive\\Desktop\\Python Internship\\Chapters\\day1.html', 'r') as file:
     text = file.read()
 
-wordcloud = WordCloud(background_color='black', mask=image_array, contour_color='green', contour_width=1, stopwords=set(STOPWORDS))
+wordcloud = WordCloud(background_color=None, mask=image_array, contour_color='white', contour_width=1, stopwords=set(STOPWORDS))
 wordcloud.generate(text)
 
 plt.figure(figsize=(10, 10))
